@@ -7,19 +7,27 @@ Required:
     - resource_group_name
 Optional:
     - data
+    - data_key_vault_id (alternative to data - read from Key Vault instead)
+    - data_key_vault_secret_name (alternative to data - read from Key Vault instead)
     - key_vault_identity_client_id
     - key_vault_secret_id
     - password
+    - password_key_vault_id (alternative to password - read from Key Vault instead)
+    - password_key_vault_secret_name (alternative to password - read from Key Vault instead)
 EOT
 
   type = map(object({
-    api_management_name          = string
-    name                         = string
-    resource_group_name          = string
-    data                         = optional(string)
-    key_vault_identity_client_id = optional(string)
-    key_vault_secret_id          = optional(string)
-    password                     = optional(string)
+    api_management_name            = string
+    name                           = string
+    resource_group_name            = string
+    data                           = optional(string)
+    data_key_vault_id              = optional(string)
+    data_key_vault_secret_name     = optional(string)
+    key_vault_identity_client_id   = optional(string)
+    key_vault_secret_id            = optional(string)
+    password                       = optional(string)
+    password_key_vault_id          = optional(string)
+    password_key_vault_secret_name = optional(string)
   }))
   validation {
     condition = alltrue([
